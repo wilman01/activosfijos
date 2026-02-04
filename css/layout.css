@@ -13,7 +13,7 @@ body {
 
 .sidebar {
     width: 280px;
-    background-color: #1a1f36;
+    background-color: #6B0F1A;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@ body {
 
 .sidebar-header {
     padding: 24px 20px;
-    border-bottom: 1px solid #2d3152;
+    border-bottom: 1px solid #7D1F2D;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -81,14 +81,14 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #252b42;
+    background-color: #7D1F2D;
     color: #fff;
 }
 
 .nav-item.active {
-    background-color: #252b42;
+    background-color: #7D1F2D;
     color: #fff;
-    border-left-color: #3b82f6;
+    border-left-color: #fff;
 }
 
 .nav-item svg {
@@ -107,7 +107,7 @@ body {
 }
 
 .nav-submenu {
-    background-color: #151930;
+    background-color: #5a0f17;
     display: none;
     padding: 8px 0;
 }
@@ -122,12 +122,12 @@ body {
 }
 
 .nav-submenu .nav-item:hover {
-    background-color: #1a1f36;
+    background-color: #6B0F1A;
 }
 
 .sidebar-footer {
     padding: 20px;
-    border-top: 1px solid #2d3152;
+    border-top: 1px solid #7D1F2D;
 }
 
 .user-info {
