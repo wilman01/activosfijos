@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro - Activos Fijos</title>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo_fvf.png" alt="Logo FVF">
+            <div>
+                <h1>Activos Fijos</h1>
+                <span>Gestión Integral</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Menú Principal</div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="nav-item" id="gestionActivosToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="18" rx="2"/>
+                    <line x1="2" y1="9" x2="22" y2="9"/>
+                </svg>
+                <span>Gestión de Activos</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="gestionActivosSubmenu">
+                <div class="nav-item" onclick="window.location.href='listar-activos.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <span>Listar Activos</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='agregar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                    <span>Agregar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='editar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    <span>Editar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='imprimir-ficha.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    <span>Imprimir Ficha</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='historial-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Historial de Activo</span>
+                </div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='movimientos.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Movimientos y Traslados</span>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Reportes</div>
+            </div>
+
+            <div class="nav-item" id="reportesToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>Reportes</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="reportesSubmenu">
+                <div class="nav-item" onclick="window.location.href='reporte-total-activos.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="18" rx="2"/>
+                        <line x1="2" y1="9" x2="22" y2="9"/>
+                    </svg>
+                    <span>Total Activos</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-sede.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                    <span>Total por Sede</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-gerencia.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Total por Gerencia</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-colaborador.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Total por Colaborador</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Configuración</div>
+            </div>
+
+            <div class="nav-item active" id="configToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>Configuración</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu open" id="configSubmenu">
+                <div class="nav-item" onclick="window.location.href='usuarios.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Usuarios</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='roles.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Roles</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='colaboradores.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Colaboradores</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='sedes.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Sedes</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='gerencias.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Gerencias</span>
+                </div>
+                <div class="nav-item active" onclick="window.location.href='seguros.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Seguro</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='legales.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    <span>Legales</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <div class="user-details">
+                    <div class="user-name">Juan Doe</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Seguros</h1>
+                <p class="page-subtitle">Gestión de seguros de activos</p>
+            </div>
+            <div class="breadcrumb">
+                <a href="#">Inicio</a>
+                <span>/</span>
+                <span>Configuración</span>
+                <span>/</span>
+                <span>Seguro</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Lista de Seguros</h2>
+                <button style="padding: 10px 20px; background-color: #3b82f6; color: #fff; border: none; border-radius: 6px; cursor: pointer;">+ Nuevo Seguro</button>
+            </div>
+            <div class="card-body">
+                <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <input type="text" placeholder="Buscar seguro..." style="padding: 10px 16px; border: 1px solid #dadce0; border-radius: 6px; flex: 1; min-width: 200px;">
+                    <select style="padding: 10px 16px; border: 1px solid #dadce0; border-radius: 6px;">
+                        <option>Todos los estados</option>
+                        <option>Vigente</option>
+                        <option>Por Vencer</option>
+                        <option>Vencido</option>
+                    </select>
+                    <button style="padding: 10px 20px; background-color: #3b82f6; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Buscar</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Poliza</th>
+                                <th>Activo</th>
+                                <th>Compania</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>POL-2024-001</td>
+                                <td>Vehiculo Toyota Corolla</td>
+                                <td>Seguros Pacifico</td>
+                                <td>2024-01-01</td>
+                                <td>2025-01-01</td>
+                                <td><span class="badge-status active">Vigente</span></td>
+                                <td>
+                                    <button style="padding: 6px 12px; background: none; border: 1px solid #dadce0; border-radius: 4px; cursor: pointer; margin-right: 4px;">Ver</button>
+                                    <button style="padding: 6px 12px; background: none; border: 1px solid #dadce0; border-radius: 4px; cursor: pointer;">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>POL-2024-002</td>
+                                <td>Computadora Dell XPS 15</td>
+                                <td>Seguros Rimac</td>
+                                <td>2024-03-01</td>
+                                <td>2025-03-01</td>
+                                <td><span class="badge-status pending">Por Vencer</span></td>
+                                <td>
+                                    <button style="padding: 6px 12px; background: none; border: 1px solid #dadce0; border-radius: 4px; cursor: pointer; margin-right: 4px;">Ver</button>
+                                    <button style="padding: 6px 12px; background: none; border: 1px solid #dadce0; border-radius: 4px; cursor: pointer;">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('configToggle').addEventListener('click', function() {
+            document.getElementById('configSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('reportesToggle').addEventListener('click', function() {
+            document.getElementById('reportesSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('gestionActivosToggle').addEventListener('click', function() {
+            document.getElementById('gestionActivosSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

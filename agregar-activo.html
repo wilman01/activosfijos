@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Activo - Activos Fijos</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #dadce0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            border-width: 2px;
+            padding: 9px 13px;
+        }
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background-color: #fff;
+            color: #374151;
+            border: 1px solid #dadce0;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo_fvf.png" alt="Logo FVF">
+            <div>
+                <h1>Activos Fijos</h1>
+                <span>Gestión Integral</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Menú Principal</div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="nav-item active" id="gestionActivosToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="18" rx="2"/>
+                    <line x1="2" y1="9" x2="22" y2="9"/>
+                </svg>
+                <span>Gestión de Activos</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu open" id="gestionActivosSubmenu">
+                <div class="nav-item" onclick="window.location.href='listar-activos.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <span>Listar Activos</span>
+                </div>
+                <div class="nav-item active" onclick="window.location.href='agregar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                    <span>Agregar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='editar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    <span>Editar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='imprimir-ficha.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    <span>Imprimir Ficha</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='historial-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Historial de Activo</span>
+                </div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='movimientos.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Movimientos y Traslados</span>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Reportes</div>
+            </div>
+
+            <div class="nav-item" id="reportesToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>Reportes</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="reportesSubmenu">
+                <div class="nav-item" onclick="window.location.href='reporte-total-activos.html'">
+                    <span>Total Activos</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-sede.html'">
+                    <span>Total por Sede</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-gerencia.html'">
+                    <span>Total por Gerencia</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-colaborador.html'">
+                    <span>Total por Colaborador</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Configuración</div>
+            </div>
+
+            <div class="nav-item" id="configToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>Configuración</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="configSubmenu">
+                <div class="nav-item" onclick="window.location.href='usuarios.html'"><span>Usuarios</span></div>
+                <div class="nav-item" onclick="window.location.href='roles.html'"><span>Roles</span></div>
+                <div class="nav-item" onclick="window.location.href='colaboradores.html'"><span>Colaboradores</span></div>
+                <div class="nav-item" onclick="window.location.href='sedes.html'"><span>Sedes</span></div>
+                <div class="nav-item" onclick="window.location.href='gerencias.html'"><span>Gerencias</span></div>
+                <div class="nav-item" onclick="window.location.href='seguros.html'"><span>Seguro</span></div>
+                <div class="nav-item" onclick="window.location.href='legales.html'"><span>Legales</span></div>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <div class="user-details">
+                    <div class="user-name">Juan Doe</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Agregar Activo</h1>
+                <p class="page-subtitle">Registro de nuevo activo</p>
+            </div>
+            <div class="breadcrumb">
+                <a href="#">Inicio</a>
+                <span>/</span>
+                <span>Gestión de Activos</span>
+                <span>/</span>
+                <span>Agregar</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Información del Activo</h3>
+            </div>
+            <div class="card-body">
+                <form class="form-grid">
+                    <div class="form-group">
+                        <label>Nombre del Activo</label>
+                        <input type="text" placeholder="Ej: Computadora Dell XPS 15">
+                    </div>
+                    <div class="form-group">
+                        <label>Código</label>
+                        <input type="text" placeholder="Ej: AF-2024-001">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Activo</label>
+                        <select>
+                            <option value="">Seleccionar tipo</option>
+                            <option value="tecnologia">Tecnología</option>
+                            <option value="vehiculo">Vehículo</option>
+                            <option value="mobiliario">Mobiliario</option>
+                            <option value="software">Software</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Sede</label>
+                        <select>
+                            <option value="">Seleccionar sede</option>
+                            <option value="central">Central</option>
+                            <option value="norte">Norte</option>
+                            <option value="sur">Sur</option>
+                            <option value="este">Este</option>
+                            <option value="oeste">Oeste</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Gerencia</label>
+                        <select>
+                            <option value="">Seleccionar gerencia</option>
+                            <option value="ti">TI</option>
+                            <option value="operaciones">Operaciones</option>
+                            <option value="administracion">Administración</option>
+                            <option value="rrhh">RRHH</option>
+                            <option value="finanzas">Finanzas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Colaborador Responsable</label>
+                        <select>
+                            <option value="">Seleccionar colaborador</option>
+                            <option value="juan">Juan Pérez</option>
+                            <option value="maria">María García</option>
+                            <option value="carlos">Carlos López</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha de Adquisición</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor</label>
+                        <input type="number" placeholder="0.00">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Descripción</label>
+                        <textarea rows="4" placeholder="Descripción del activo..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Guardar Activo</button>
+                        <button type="button" class="btn-secondary" onclick="window.location.href='listar-activos.html'">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('configToggle').addEventListener('click', function() {
+            document.getElementById('configSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+        document.getElementById('reportesToggle').addEventListener('click', function() {
+            document.getElementById('reportesSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+        document.getElementById('gestionActivosToggle').addEventListener('click', function() {
+            document.getElementById('gestionActivosSubmenu').classList.toggle('open');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

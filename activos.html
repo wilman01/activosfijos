@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Activos Fijos</title>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo_fvf.png" alt="Logo FVF">
+            <div>
+                <h1>Activos Fijos</h1>
+                <span>Gestión Integral</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Menú Principal</div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="nav-item" id="gestionActivosToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="18" rx="2"/>
+                    <line x1="2" y1="9" x2="22" y2="9"/>
+                </svg>
+                <span>Gestión de Activos</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="gestionActivosSubmenu">
+                <div class="nav-item" onclick="window.location.href='listar-activos.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <span>Listar Activos</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='agregar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                    <span>Agregar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='editar-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    <span>Editar Activo</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='imprimir-ficha.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    <span>Imprimir Ficha</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='historial-activo.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Historial de Activo</span>
+                </div>
+            </div>
+
+            <div class="nav-item" onclick="window.location.href='movimientos.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Movimientos y Traslados</span>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Reportes</div>
+            </div>
+
+            <div class="nav-item" id="reportesToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>Reportes</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu" id="reportesSubmenu">
+                <div class="nav-item" onclick="window.location.href='reporte-total-activos.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="18" rx="2"/>
+                        <line x1="2" y1="9" x2="22" y2="9"/>
+                    </svg>
+                    <span>Total Activos</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-sede.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                    <span>Total por Sede</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-gerencia.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Total por Gerencia</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='reporte-por-colaborador.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Total por Colaborador</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Configuración</div>
+            </div>
+
+            <div class="nav-item active" id="configToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>Configuración</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-left: auto;">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+
+            <div class="nav-submenu open" id="configSubmenu">
+                <div class="nav-item" onclick="window.location.href='usuarios.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Usuarios</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='roles.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Roles</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='colaboradores.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Colaboradores</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='sedes.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Sedes</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='gerencias.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Gerencias</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='seguros.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Seguro</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='legales.html'">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>Legales</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <div class="user-details">
+                    <div class="user-name">Juan Doe</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle">Resumen general de activos</p>
+            </div>
+            <div class="breadcrumb">
+                <a href="#">Inicio</a>
+                <span>/</span>
+                <span>Dashboard</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="18" rx="2"/>
+                            <line x1="2" y1="9" x2="22" y2="9"/>
+                        </svg>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +12%
+                    </div>
+                </div>
+                <div class="stat-value">1,248</div>
+                <div class="stat-label">Total de Activos</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +5%
+                    </div>
+                </div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Sedes</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="18" cy="18" r="3"/>
+                            <circle cx="6" cy="6" r="3"/>
+                            <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+                            <line x1="6" y1="9" x2="6" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="stat-trend down">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+                            <polyline points="17 18 23 18 23 12"/>
+                        </svg>
+                        -2%
+                    </div>
+                </div>
+                <div class="stat-value">156</div>
+                <div class="stat-label">Total de Vehículos</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                        +8%
+                    </div>
+                </div>
+                <div class="stat-value">324</div>
+                <div class="stat-label">Total de Licencias</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Activos por Sede</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="assetsByBranch"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Tipos de Activos</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="assetTypes"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Últimos Activos Registrados</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Sede</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AF-2024-001</td>
+                                <td>Computadora Dell XPS 15</td>
+                                <td>Tecnología</td>
+                                <td>Central</td>
+                                <td><span class="badge-status active">Activo</span></td>
+                                <td>02/02/2026</td>
+                            </tr>
+                            <tr>
+                                <td>AF-2024-002</td>
+                                <td>Vehículo Toyota Corolla</td>
+                                <td>Vehículo</td>
+                                <td>Norte</td>
+                                <td><span class="badge-status active">Activo</span></td>
+                                <td>01/02/2026</td>
+                            </tr>
+                            <tr>
+                                <td>AF-2024-003</td>
+                                <td>Licencia Microsoft 365</td>
+                                <td>Software</td>
+                                <td>Central</td>
+                                <td><span class="badge-status pending">Por Vencer</span></td>
+                                <td>31/01/2026</td>
+                            </tr>
+                            <tr>
+                                <td>AF-2024-004</td>
+                                <td>Silla Ergonómica</td>
+                                <td>Mobiliario</td>
+                                <td>Sur</td>
+                                <td><span class="badge-status active">Activo</span></td>
+                                <td>30/01/2026</td>
+                            </tr>
+                            <tr>
+                                <td>AF-2024-005</td>
+                                <td>Impresora HP LaserJet</td>
+                                <td>Tecnología</td>
+                                <td>Este</td>
+                                <td><span class="badge-status inactive">Inactivo</span></td>
+                                <td>29/01/2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('configToggle').addEventListener('click', function() {
+            const submenu = document.getElementById('configSubmenu');
+            submenu.classList.toggle('open');
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('reportesToggle').addEventListener('click', function() {
+            const submenu = document.getElementById('reportesSubmenu');
+            submenu.classList.toggle('open');
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('gestionActivosToggle').addEventListener('click', function() {
+            const submenu = document.getElementById('gestionActivosSubmenu');
+            submenu.classList.toggle('open');
+            this.classList.toggle('active');
+        });
+
+        const currentPage = window.location.pathname.split('/').pop();
+        const navItems = document.querySelectorAll('.nav-item:not(#configToggle):not(#reportesToggle):not(#gestionActivosToggle)');
+        
+        navItems.forEach(item => {
+            const onclick = item.getAttribute('onclick');
+            if (onclick && onclick.includes(currentPage)) {
+                item.classList.add('active');
+            }
+        });
+
+        const assetsByBranch = new Chart(document.getElementById('assetsByBranch'), {
+            type: 'bar',
+            data: {
+                labels: ['Central', 'Norte', 'Sur', 'Este', 'Oeste', 'Norte 2', 'Centro', 'Sur 2'],
+                datasets: [{
+                    label: 'Activos',
+                    data: [320, 180, 150, 140, 120, 110, 108, 120],
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        const assetTypes = new Chart(document.getElementById('assetTypes'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Tecnología', 'Vehículos', 'Mobiliario', 'Software', 'Otro'],
+                datasets: [{
+                    data: [450, 156, 280, 324, 38],
+                    backgroundColor: ['#3b82f6', '#f97316', '#22c55e', '#a855f7', '#6b7280'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
