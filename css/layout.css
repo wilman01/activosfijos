@@ -99,11 +99,12 @@ body {
 
 .nav-item .badge {
     margin-left: auto;
-    background-color: #3b82f6;
-    color: #fff;
+    background-color: #ffffff;
+    color: #6B0F1A;
     font-size: 11px;
     padding: 2px 8px;
     border-radius: 12px;
+    font-weight: 600;
 }
 
 .nav-submenu {
@@ -140,7 +141,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, #6B0F1A, #8B1E3A);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,8 +200,9 @@ body {
 }
 
 .breadcrumb a {
-    color: #3b82f6;
+    color: #6B0F1A;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .stats-grid {
@@ -240,23 +242,23 @@ body {
 }
 
 .stat-icon.blue {
-    background-color: #dbeafe;
-    color: #3b82f6;
+    background-color: #f8d7da;
+    color: #6B0F1A;
 }
 
 .stat-icon.green {
-    background-color: #dcfce7;
-    color: #22c55e;
+    background-color: #d4edda;
+    color: #155724;
 }
 
 .stat-icon.orange {
-    background-color: #ffedd5;
-    color: #f97316;
+    background-color: #fff3cd;
+    color: #856404;
 }
 
 .stat-icon.purple {
-    background-color: #f3e8ff;
-    color: #a855f7;
+    background-color: #e2e3f5;
+    color: #5a6268;
 }
 
 .stat-icon svg {
@@ -374,18 +376,18 @@ table tr:hover {
 }
 
 .badge-status.active {
-    background-color: #dcfce7;
-    color: #16a34a;
+    background-color: #f8d7da;
+    color: #6B0F1A;
 }
 
 .badge-status.inactive {
-    background-color: #fee2e2;
-    color: #dc2626;
+    background-color: #e2e3e5;
+    color: #5a6268;
 }
 
 .badge-status.pending {
-    background-color: #fef3c7;
-    color: #d97706;
+    background-color: #fff3cd;
+    color: #856404;
 }
 
 @media (max-width: 1024px) {
